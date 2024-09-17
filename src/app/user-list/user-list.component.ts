@@ -8,7 +8,7 @@ import { UserServiceService } from '../user-service.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.css',
+  styleUrl: './user-list.component.css'
 })
 export class UserListComponent implements OnInit {
 
@@ -18,6 +18,7 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserList();
+    console.log("dwdwdwdwdwdw------------")
   }
 
   private getUserList() {
