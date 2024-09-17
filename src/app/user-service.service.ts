@@ -8,7 +8,7 @@ import { User } from './class/user';
 })
 export class UserServiceService {
 
-  private baseUrl = "localhost:8080/smart/user/v1/getUserList"
+  private baseUrl = "http://localhost:8080/smart/user/v1/getUserList"
   constructor(private httpClient: HttpClient) {}
   getUserList(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.baseUrl}`);
