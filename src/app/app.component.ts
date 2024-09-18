@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { UserListComponent } from "./user-list/user-list.component";
+import { UserListComponent } from "./pages/user-list/user-list.component";
 import { CommonModule } from '@angular/common';
 
 @Component({
