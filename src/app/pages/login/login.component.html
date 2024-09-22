@@ -1,34 +1,49 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h2 class="text-center text-dark mt-5">Login Form</h2>
-        <div class="text-center mb-5 text-dark">Made with bootstrap</div>
-        <div class="card my-5">
-
-          <form class="card-body cardbody-color p-lg-5">
-
-            <div class="text-center">
-              <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
-                width="200px" alt="profile">
+<html>
+    
+<body>
+    <div class="container">
+        <div class="login">
+            <div class="toggle">
+                <div class="logo">
+                    <img src="/wolf.jpg">
+                    <h1>Smart<span class="text-muted">Park</span></h1>
+                </div>
+                <h2>Sign In</h2>
+                <form>
+                    <p *ngIf="validationErrors.length > 0">
+                        <small>{{validationErrors}}</small>
+                    </p>
+                    <div>
+                        <mat-form-field class="field">
+                            <mat-label>Username</mat-label>
+                            <input matInput type="text" id="userName" name="userName" required
+                            [(ngModel)]="userName" />
+                          </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="field">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide() ? 'password' : 'text'" 
+                            id="password" name="password" required
+                            [(ngModel)]="password"/>
+                            <button
+                              mat-icon-button
+                              matSuffix
+                              (click)="clickEvent($event)"
+                            >
+                            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button mat-fab extended [disabled]="isSubmitting || (password.length <= 0 || userName.length <= 0)"
+                            (click)="loginAction()" type="button">Login</button>
+                        <p class="text-center">Don't have account? Please contact the admin!</p>
+                    </div>
+                </form>
             </div>
-
-            <div class="mb-3">
-              <input type="text" [(ngModel)]="loginForm.userName" name="userName" class="form-control" id="Username" aria-describedby="emailHelp"
-                placeholder="User Name">
-            </div>
-            <div class="mb-3">
-              <input type="password" [(ngModel)]="loginForm.password" name="password" class="form-control" id="password" placeholder="password">
-            </div>
-            <div class="text-center">
-                <button type="submit" (click)="onLogin()" class="btn btn-color px-5 mb-5 w-100">Login</button>
-            </div>
-            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-              Registered? <a href="#" class="text-dark fw-bold"> Create an
-                Account</a>
-            </div>
-          </form>
         </div>
-
-      </div>
     </div>
-  </div>
+</body>
+
+</html>

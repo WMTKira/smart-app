@@ -1,0 +1,48 @@
+<div class="container">
+    <main>
+       
+            <h1>Parking Lot List</h1>
+            <div class="sub-users">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parking Lot ID</th>
+                        <th>Status</th>
+                        <th>Location</th>
+                        <th>Capacity</th>
+                       
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let parking of parking">
+                        <td>{{parking.lotId}}</td>
+                        <td>{{parking.stateTypeStr}}</td>
+                        <td>{{parking.location}}</td>
+                        <td>{{parking.capacity}}</td>
+                        <td><a href="#">Details</a></td>
+                    </tr>
+                </tbody>
+                <caption>
+                    <mat-paginator
+                    class="paginator"
+                    [length]="total"
+                    [pageSize]="10"
+                    [disabled]="disabled"
+                    [showFirstLastButtons]="showFirstLastButtons"
+                    [hidePageSize]= true
+                    (page)="handlePageEvent($event)"
+                    >
+                    </mat-paginator>
+                </caption>
+            </table>
+            
+
+        </div>
+ 
+
+
+
+    </main>
+
+</div>
